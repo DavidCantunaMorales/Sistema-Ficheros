@@ -1,0 +1,52 @@
+<!-- generic-form.component.html -->
+
+<div class="container mt-5">
+    <div class="" >
+        <div class="card-body">
+            <form [formGroup]="formOrganismo" (ngSubmit)="onSubmit()">
+                <div class="row mb-3">
+                    <label class="col-sm-2 col-form-label">Nombre</label>
+                    <div class="col-sm-10">
+                        <input formControlName="nombre" type="text" class="form-control">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label class="col-sm-2 col-form-label">Contraseña</label>
+                    <div class="col-sm-10">
+                        <input formControlName="password" type="text" class="form-control">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label class="col-sm-2 col-form-label">Dirección</label>
+                    <div class="col-sm-10">
+                        <input formControlName="direccion" type="text" class="form-control">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label class="col-sm-2 col-form-label">Población</label>
+                    <div class="col-sm-10">
+                        <input formControlName="poblacion" type="number" class="form-control">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label class="col-sm-2 col-form-label">Código Postal</label>
+                    <div class="col-sm-10">
+                        <input formControlName="codigo_postal" type="number" class="form-control">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label class="col-sm-2 col-form-label">Teléfono</label>
+                    <div class="col-sm-10">
+                        <input formControlName="telefono" type="number" class="form-control">
+                    </div>
+                </div>
+                <div class="d-grid gap-2 col-6 mx-auto">
+                    <div style="display: flex; justify-content: space-between;">
+                        <button [disabled]="!formOrganismo.valid" type="submit" class="btn" style="background-color: #02152B; color: white;">Crear Organismo</button>
+                        <a routerLink="/show" class="btn btn-danger">Cancelar</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

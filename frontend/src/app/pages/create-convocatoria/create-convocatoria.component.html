@@ -1,0 +1,61 @@
+<div class="container" style="padding: 80px;">
+  <div class="card" style="background-color: #fff; color: #333; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+    <div class="card-body">
+        <h2 class="card-title text-center" style="color: black;">Crear Convocatoria</h2>
+        <form [formGroup]="formConvocatoria" (ngSubmit)="onSubmit()">
+            <div class="row mb-3">
+                <label class="col-sm-2 col-form-label" style="color: black;">Programa</label>
+                <div class="col-sm-10">
+                    <input formControlName="programa" type="text" class="form-control">
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label class="col-sm-2 col-form-label" style="color: black;">Fecha de Publicación</label>
+                <div class="col-sm-10">
+                    <input formControlName="fecha_publicacion" type="date" class="form-control">
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label class="col-sm-2 col-form-label" style="color: black;">Fecha Límite</label>
+                <div class="col-sm-10">
+                    <input formControlName="fecha_limite" type="date" class="form-control">
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label class="col-sm-2 col-form-label" style="color: black;">Dirección Web</label>
+                <div class="col-sm-10">
+                    <input formControlName="direccion_web" type="text" class="form-control">
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label class="col-sm-2 col-form-label" style="color: black;">Número BOE DOGV</label>
+                <div class="col-sm-10">
+                    <input formControlName="numero_BOE_DOGV" type="number" class="form-control">
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label class="col-sm-2 col-form-label" style="color: black;">Fecha de Resolución</label>
+                <div class="col-sm-10">
+                    <input formControlName="fecha_resolucion" type="date" class="form-control">
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label class="col-sm-2 col-form-label" style="color: black;">Organismo</label>
+                <div class="col-sm-10">
+                    <select formControlName="organismoId" class="form-control">
+                        <option *ngFor="let organismo of organismos" [value]="organismo._id">
+                            {{ organismo.nombre }}
+                        </option>
+                    </select>
+                </div>
+            </div>
+  
+            <div class="btn-group float-end" role="group">
+                <button [disabled]="!formConvocatoria.valid" type="submit" class="btn btn-primary" style="background-color: #02152B;">Crear Convocatoria</button>
+                <a routerLink="/showConvocatoria" class="btn btn-outline-secondary">Cancelar</a>
+            </div>
+        </form>
+    </div>
+  </div>
+    
+</div>

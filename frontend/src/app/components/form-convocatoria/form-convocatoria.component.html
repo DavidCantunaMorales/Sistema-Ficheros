@@ -1,0 +1,52 @@
+<!-- generic-form.component.html -->
+
+<div class="container mt-5">
+    <div class="">
+        <div class="card-body">
+            <form [formGroup]="formConvocatoria" (ngSubmit)="onSubmit()">
+                <div class="row mb-3">
+                    <label class="col-sm-2 col-form-label">Programa</label>
+                    <div class="col-sm-10">
+                        <input formControlName="programa" type="text" class="form-control">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label class="col-sm-2 col-form-label">Fecha de Publicación</label>
+                    <div class="col-sm-10">
+                        <input formControlName="fecha_publicacion" type="date" class="form-control">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label class="col-sm-2 col-form-label">Fecha Límite</label>
+                    <div class="col-sm-10">
+                        <input formControlName="fecha_limite" type="date" class="form-control">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label class="col-sm-2 col-form-label">Dirección Web</label>
+                    <div class="col-sm-10">
+                        <input formControlName="direccion_web" type="text" class="form-control">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label class="col-sm-2 col-form-label">Número BOE DOGV</label>
+                    <div class="col-sm-10">
+                        <input formControlName="numero_BOE_DOGV" type="number" class="form-control">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label class="col-sm-2 col-form-label">Fecha de Resolución</label>
+                    <div class="col-sm-10">
+                        <input formControlName="fecha_resolucion" type="date" class="form-control">
+                    </div>
+                </div>
+                <div class="d-grid gap-2 col-6 mx-auto">
+                    <div style="display: flex; justify-content: space-between;">
+                        <button [disabled]="!formConvocatoria.valid" type="submit" class="btn btn-primary" style="background-color: #02152B;">Editar Convocatoria</button>
+                        <a routerLink="/showConvocatoria" class="btn btn-outline-secondary">Cancelar</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

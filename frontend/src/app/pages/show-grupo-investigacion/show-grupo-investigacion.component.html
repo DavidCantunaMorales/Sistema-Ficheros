@@ -1,0 +1,51 @@
+<!-- show-grupo-investigacion.component.html -->
+
+<div class="container text-center">
+  <div class="mt-4">
+    <img src="/assets/espeLogo.png" width="250" alt="" />
+    <h2 style="color: #02152B;">Gestión de Grupos de Investigación</h2>
+    <button type="button" class="btn" style="background-color: #02152B; color: white;" routerLink="/principal">Regresar</button>
+  </div>
+  <div class="d-grid gap-2">
+    <a routerLink="/createGrupoInvestigacion" class="btn" style="background-color: #02152B; color: white;" type="button">
+      <fa-icon [icon]="faCirclePlus" [size]="'2x'"></fa-icon>
+    </a>
+  </div>
+  <div class="table-responsive">
+    <table class="table table-hover" style="background-color: #fff; color: #333; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+      <thead>
+        <tr style="background-color: #02152B; color: #fff;">
+          <th style="display: none;">Id</th>
+          <th>Investigador Responsable</th>
+          <th>Nombre Grupo</th>
+          <th>Participantes</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let grupo of gruposInvestigacion; let i = index">
+          <td style="display: none;">{{ grupo._id }}</td>
+          <td>{{ getInvestigadorById(grupo.investigador_responsable_id)?.nombre }}</td>
+          <td>{{ grupo.nombre }}</td>
+          <td>
+            <ol>
+              <li *ngFor="let participanteId of grupo.participantes">
+                {{ getInvestigadorById(participanteId)?.nombre }}
+              </li>
+            </ol>
+          </td>
+          <td>
+            <div class="btn-group">
+              <a routerLink="/updateGrupoInvestigacion/{{ grupo._id }}" class="btn" style="background-color: #02152B; color: white;">
+                <fa-icon [icon]="faPen"></fa-icon>
+              </a>
+              <button (click)="delete(grupo._id, i)" class="btn" style="background-color: #02152B; color: white;">
+                <fa-icon [icon]="faTrash"></fa-icon>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

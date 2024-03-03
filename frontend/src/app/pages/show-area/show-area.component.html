@@ -1,0 +1,54 @@
+<div class="container text-center mt-4">
+  <div class="mt-4">
+    <img src="/assets/espeLogo.png" width="250" alt="" />
+  </div>
+  <div style="padding-top: 40px;">
+    <h2 style="color: #02152B;">GESTIÓN DE AREAS</h2>
+  </div>
+  <div class="container">
+    <div style="float: left;">
+      <button type="button" class="btn" style="background-color: #02152B; color: white;" routerLink="/principal">Regresar</button>
+    </div>
+    <div style="float: right;">
+      <button type="button" class="btn" style="background-color: #02152B; color: white;" routerLink="/createArea">
+        <fa-icon [icon]="faCirclePlus" [size]="'2x'"></fa-icon>
+      </button>
+    </div>
+    <div style="clear: both;"></div>
+  </div>
+  <div class="table-responsive mt-4">
+    <table class="table table-hover" style="background-color: #fff; color: #333; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+      <thead>
+        <tr style="background-color: #02152B; color: #fff;">
+          <th style="display: none">Id</th>
+          <th style="background-color: #02152B; color: white;">Nombre</th>
+          <th style="background-color: #02152B; color: white;">Departamentos</th>
+          <th style="background-color: #02152B; color: white;">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let area of areas; let i = index">
+          <td style="display: none">{{ area._id }}</td>
+          <td> {{ area.nombre }}</td>
+          <td>
+            <ol>
+              <li *ngFor="let departamentoId of area.departamentos">
+                {{ getDepartamentoById(departamentoId)?.nombre }}
+              </li>
+            </ol>
+          </td>
+          <td>
+            <div class="btn-group">
+              <a routerLink="/updateArea/{{ area._id }}" class="btn" style="background-color: #02152B; color: #fff;">
+                <fa-icon [icon]="faPen"></fa-icon>
+              </a>
+              <button (click)="delete(area._id, i)" class="btn" style="background-color: #02152B; color: #fff;">
+                <fa-icon [icon]="faTrash"></fa-icon>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

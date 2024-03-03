@@ -1,0 +1,9 @@
+  
+  <div class="container" style="margin-top: 100px; padding: 20px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+    <h5 class="card-title text-center">Editar Organismo</h5>
+    <app-generic-form
+    *ngIf="model"
+    [modelOrganismo]="model"
+    (submitValues)="onSubmit($event)"
+  ></app-generic-form>
+</div>

@@ -1,0 +1,57 @@
+<div class="container mt-5">
+    <div class="card" style="background-color: #fff; color: #333; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+        <div class="card-body">
+            <h1 class="card-title text-center" style="color: black;">Crear Solicitud</h1>
+            <form [formGroup]="formSolicitud" (ngSubmit)="onSubmit()">
+                <div class="mb-3">
+                    <label class="form-label" style="color: black;">Título del Proyecto</label>
+                    <input formControlName="titulo_proyecto" type="text" class="form-control">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" style="color: black;">Fecha de Presentación</label>
+                    <input formControlName="fecha_presentacion" type="date" class="form-control">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" style="color: black;">Fecha de Resolución</label>
+                    <input formControlName="fecha_resolucion" type="date" class="form-control">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" style="color: black;">Importe Económico</label>
+                    <input formControlName="importe_economico" type="number" class="form-control">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" style="color: black;">Fecha de Inicio del Proyecto</label>
+                    <input formControlName="fecha_inicioProyecto" type="date" class="form-control">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" style="color: black;">Fecha de Fin del Proyecto</label>
+                    <input formControlName="fecha_finProyecto" type="date" class="form-control">
+                </div>
+                <div class="mb-3 form-check">
+                    <input formControlName="estado" type="checkbox" class="form-check-input">
+                    <label class="form-check-label" style="color: black;">Estado</label>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" style="color: black;">Convocatorias</label>
+                    <select formControlName="convocatoriaId" class="form-select">
+                        <option *ngFor="let convocatoria of convocatorias" [value]="convocatoria._id">
+                            {{ convocatoria.programa }}
+                        </option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" style="color: black;">Participantes</label>
+                    <select formControlName="participantes" class="form-select" multiple>
+                        <option *ngFor="let investigador of getNoResponsableInvestigadores()" [value]="investigador._id">
+                            {{ investigador.nombre }}
+                        </option>
+                    </select>
+                </div>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                    <button [disabled]="!formSolicitud.valid" type="submit" class="btn btn-primary" style="background-color: #02152B;">Crear Solicitud</button>
+                    <a routerLink="/showSolicitud" class="btn btn-danger">Cancelar</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,40 @@
+<!-- create-area.component.html -->
+
+<div class="container" style="padding-top: 200px;">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="card" style="background-color: #fff; color: #333; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+            <div class="card-body">
+              <h2 class="card-title text-center mb-4" style="color: black;">Crear Áreas</h2>
+
+            <form [formGroup]="formArea" (ngSubmit)="onSubmit()">
+              <div class="row mb-3">
+                <label class="col-sm-3 col-form-label">Nombre</label>
+                <div class="col-sm-9">
+                  <input formControlName="nombre" type="text" class="form-control">
+                </div>
+              </div>
+              <div class="row mb-3">
+                <label class="col-sm-3 col-form-label">Departamentos</label>
+                <div class="col-sm-9">
+                  <select formControlName="departamentos" class="form-control selectpicker" multiple data-live-search="true">
+                    <option *ngFor="let departamento of getDepartamentos()" [value]="departamento._id">
+                      {{ departamento.nombre }}
+                    </option>
+                  </select>
+                </div>
+              </div>
+              
+              <div class="d-grid gap-2 col-6 mx-auto">
+                <div style="display: flex; justify-content: space-between;">
+                  <a routerLink="/showAreas" class="btn btn-danger" >Cancelar</a>
+                  <button [disabled]="!formArea.valid" type="submit" class="btn btn-primary" style="background-color: #02152B;">Crear Área</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

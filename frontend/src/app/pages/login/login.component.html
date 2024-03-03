@@ -1,0 +1,38 @@
+<!-- login.component.html -->
+
+<div class="container mt-5" style="padding-top: 50px;">
+  <div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card" style="background-color: #fff; color: black; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+          <div class="card-header" style="background-color: #02152B; color: #fff; font-size: 20px; padding: 12px; text-align: center;">
+            BIENVENIDO
+          </div>
+          <div class="card-body">
+            <form #loginForm="ngForm" (ngSubmit)="login()">
+              <div class="mb-3">
+                <label for="nombre" class="form-label">Nombre de usuario</label>
+                <input type="text" class="form-control" id="nombre" name="nombre" [(ngModel)]="nombre" required>
+              </div>
+              <div class="mb-3">
+                <label for="password" class="form-label">Contraseña</label>
+                <input type="password" class="form-control" id="password" name="password" [(ngModel)]="password" required>
+              </div>
+              <div class="mb-3">
+                <label for="role" class="form-label">Rol</label>
+                <select class="form-select" id="role" name="role" [(ngModel)]="role" required>
+                  <option value="investigadores">Investigador</option>
+                  <option value="organismos">Organismo</option>
+                  <option value="super-admin">Super Admin</option>
+                </select>
+              </div>
+              <div style="display: flex; align-items: center; justify-content: center;">
+                <button type="submit" class="btn" style="background-color: #02152B; color: white;">Iniciar sesión</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

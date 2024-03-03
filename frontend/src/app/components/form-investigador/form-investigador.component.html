@@ -1,0 +1,33 @@
+<!-- form-investigador.component.html -->
+
+<div class="container mt-5">
+    <form [formGroup]="formInvestigador" (ngSubmit)="onSubmit()">
+        <div class="row mb-3">
+            <label class="col-sm-2 col-form-label" style="color: black;">Nombre</label>
+            <div class="col-sm-10">
+                <input formControlName="nombre" type="text" class="form-control">
+            </div>
+        </div>
+        <div class="row mb-3">
+            <label class="col-sm-2 col-form-label" style="color: black;">Responsable</label>
+            <div class="col-sm-10">
+                <input formControlName="responsable" type="checkbox" class="form-check-input">
+            </div>
+        </div>
+        <!-- Agrega el campo de contraseña solo si el investigador es responsable -->
+        <div *ngIf="formInvestigador.get('responsable').value" class="row mb-3">
+            <label class="col-sm-2 col-form-label" style="color: black;">Contraseña</label>
+            <div class="col-sm-10">
+                <input formControlName="password" type="password" class="form-control">
+            </div>
+        </div>
+        <div class="d-grid gap-2 col-6 mx-auto">
+            <div style="display: flex; justify-content: space-between;">
+                <button [disabled]="!formInvestigador.valid" type="submit" class="btn btn-primary" style="background-color: #02152B;">
+                    Crear Investigador
+                </button>
+                <a routerLink="/showInvestigador" class="btn btn-danger">Cancelar</a>
+            </div>
+        </div>
+    </form>
+</div>
